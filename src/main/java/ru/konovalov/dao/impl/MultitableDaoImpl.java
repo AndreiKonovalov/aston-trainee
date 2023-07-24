@@ -53,7 +53,7 @@ public class MultitableDaoImpl implements MultitableDao<Employee, Project, Strin
              ResultSet resultSet = ps.executeQuery()) {
 
             while (resultSet.next()) {
-                employeeList.add(newEmployeeOfProject(resultSet));
+                employeeList.add(createEmployee(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class MultitableDaoImpl implements MultitableDao<Employee, Project, Strin
              ResultSet resultSet = ps.executeQuery()) {
 
             while (resultSet.next()) {
-                employeeList.add(newEmployeeOfProject(resultSet));
+                employeeList.add(createEmployee(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -91,7 +91,7 @@ public class MultitableDaoImpl implements MultitableDao<Employee, Project, Strin
         return ps;
     }
 
-    private Employee newEmployeeOfProject(ResultSet rs) throws SQLException {
+    private Employee createEmployee(ResultSet rs) throws SQLException {
         Employee employee = new Employee();
         employee.setFirstName(rs.getString("first_name"));
         employee.setLastName(rs.getString("last_name"));

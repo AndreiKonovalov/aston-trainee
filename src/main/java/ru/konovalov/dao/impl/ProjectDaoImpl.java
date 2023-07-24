@@ -21,7 +21,7 @@ public class ProjectDaoImpl implements DaoInterface<Project> {
 
     @Override
     public List<Project> getAll() {
-        String query = "select id, project_name, cost from projects";
+        String query = "select * from projects";
         List<Project> projectList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);

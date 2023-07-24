@@ -25,5 +25,4 @@ public class Employee {
     private Date birthday;
 
     private Long positionId;
-
 }

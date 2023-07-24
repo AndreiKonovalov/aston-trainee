@@ -21,7 +21,7 @@ public class PositionDaoImpl implements DaoInterface<Position> {
 
     @Override
     public List<Position> getAll() {
-        String query = "select id, position_name from positions";
+        String query = "select * from positions";
         List<Position> posList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);

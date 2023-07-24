@@ -21,13 +21,13 @@ public class EmployeeDaoImpl implements DaoInterface<Employee> {
 
     @Override
     public List<Employee> getAll() {
-        String query = "select id, first_name, last_name, salary, birthday, positions_id from employees";
+        String query = "select * from employees";
         List<Employee> empList = new ArrayList<>();
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
-                empList.add(newEmployee(resultSet));
+                empList.add(createEmployee(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,7 +50,7 @@ public class EmployeeDaoImpl implements DaoInterface<Employee> {
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
             if (resultSet.next()) {
-                employee = newEmployee(resultSet);
+                employee = createEmployee(resultSet);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -78,7 +78,7 @@ public class EmployeeDaoImpl implements DaoInterface<Employee> {
         return saveEmployee(query,employee);
     }
 
-    private Employee newEmployee(ResultSet rs) throws SQLException {
+    private Employee createEmployee(ResultSet rs) throws SQLException {
         Employee employee = new Employee();
         employee.setId(rs.getLong("id"));
         employee.setFirstName(rs.getString("first_name"));
