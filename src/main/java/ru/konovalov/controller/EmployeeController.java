@@ -22,21 +22,21 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
-    @GetMapping("/project")
-    public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
-        return multitableService.getProject(lastName);
-    }
+    // @GetMapping("/project")
+    // public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
+    //     return multitableService.getProject(lastName);
+    // }
 
-    @GetMapping("/{id}")
-    public Employee getEmployee(@PathVariable long id) {
-        return employeeService.get(id);
-    }
+    // @GetMapping("/{id}")
+    // public Employee getEmployee(@PathVariable long id) {
+    //     return employeeService.get(id);
+    // }
 
-    @PostMapping("/add")
-    public Employee createEmployee(@RequestBody Employee employee) {
-        employeeService.create(employee);
-        return employee;
-    }
+    // @PostMapping("/add")
+    // public Employee createEmployee(@RequestBody Employee employee) {
+    //     employeeService.create(employee);
+    //     return employee;
+    // }
 
     @PutMapping("/update")
     public Employee updateEmployee(@RequestBody Employee employee) {
