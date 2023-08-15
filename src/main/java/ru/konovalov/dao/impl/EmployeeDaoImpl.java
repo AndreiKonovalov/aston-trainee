@@ -75,7 +75,7 @@ public class EmployeeDaoImpl implements DaoInterface<Employee> {
         String query = "update employees " +
                 "set first_name = ?, last_name = ?, salary = ?, birthday = ?, positions_id = ? " +
                 "where id = " + employee.getId();
-        return saveEmployee(query,employee);
+        return saveEmployee(query, employee);
     }
 
     private Employee createEmployee(ResultSet rs) throws SQLException {
