@@ -22,10 +22,10 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
-    // @GetMapping("/project")
-    // public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
-    //     return multitableService.getProject(lastName);
-    // }
+     @GetMapping("/project")
+     public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
+         return multitableService.getProject(lastName);
+     }
 
     // @GetMapping("/{id}")
     // public Employee getEmployee(@PathVariable long id) {
