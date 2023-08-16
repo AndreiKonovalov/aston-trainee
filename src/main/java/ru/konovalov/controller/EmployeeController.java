@@ -27,6 +27,11 @@ public class EmployeeController {
          return multitableService.getProject(lastName);
      }
 
+    @GetMapping("/department")
+    public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
+        return multitableService.getProject(lastName);
+    }
+
      @GetMapping("/{id}")
      public Employee getEmployee(@PathVariable long id) {
          return employeeService.get(id);
@@ -49,4 +54,6 @@ public class EmployeeController {
         employeeService.delete(id);
         return "Employee with ID = " + id + " was deleted";
     }
+
+
 }
