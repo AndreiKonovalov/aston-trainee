@@ -28,7 +28,7 @@ public class EmployeeController {
      }
 
     @GetMapping("/department")
-    public List<Project> getProjectOfEmployee(@RequestParam String lastName) {
+    public List<Project> getProjectOfDepartment(@RequestParam String lastName) {
         return multitableService.getProject(lastName);
     }
 
